@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  cqrs-mssql:
+    container_name: cqrs-mssql
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    restart: on-failure:3
+    volumes:
+      - ./data/mssql:/var/opt/mssql
+    networks:
+      - cqrs-demo
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=yourStrong(!)Password
+    ports:
+      - '1433:1433'
+
+networks:
+  cqrs-demo:
+    name: cqrs-demo
+    driver: bridge
