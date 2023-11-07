@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using WriteApp.Models;
 
 namespace WriteApp.Storage;
-public class CQRSDBContext : DbContext
+public class DBWriteContext : DbContext
 {
     private readonly IConfiguration Configuration;
     public DbSet<Department> Departments { get; set; }
@@ -14,7 +14,7 @@ public class CQRSDBContext : DbContext
     public DbSet<Student> Students { get; set; }
     public DbSet<Teacher> Teachers { get; set; }
 
-    public CQRSDBContext(IConfiguration configuration)
+    public DBWriteContext(IConfiguration configuration)
     {
         Configuration = configuration;
     }
